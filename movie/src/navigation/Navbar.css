@@ -1,6 +1,6 @@
 .nav-bar{
-    background-color: darkblue;
-    padding: 2vh;
+    background-color: #2D2E4E;
+    padding: 3vh;
 }
 
 .nav-bar ul{
@@ -8,12 +8,16 @@
     justify-content: space-between;
 }
 
-.nav-bar ul li{
+.nav-bar ul li {
     color: white;
     list-style: none;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 800;
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+    font-size: 24px;
 }
+.nav-bar ul li:hover{
+    color: #f6ed85;
+    }
 
 .nav-bar a{
     text-decoration: none;

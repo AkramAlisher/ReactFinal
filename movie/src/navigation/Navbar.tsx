@@ -4,6 +4,7 @@ import AuthContext from "../Context/AuthContext";
 import './Navbar.css'
 import {useSelector} from "react-redux";
 import AuthState from "../Model/AuthState";
+import {Typography} from "@mui/material";
 
 interface Props {
 }

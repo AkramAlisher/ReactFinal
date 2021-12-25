@@ -1,5 +1,5 @@
 .movies-page-container {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 .search-container {
@@ -14,7 +14,7 @@
 
 .movies-page-container input {
     margin-top: 16px;
-    width: 30%;
+    width: 50%;
     padding: 12px;
     border-radius: 8px;
     margin-right: 12px;
@@ -25,7 +25,7 @@
     flex-wrap: wrap;
     padding: 20px;
     justify-content: space-around;
-    background-color: rgb(37, 38, 46);
+    background-color: #1a1b2e;
 }
 
 .movie-item {
@@ -35,8 +35,8 @@
     width: auto;
     height: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    background-color: black;
-    margin: 20px;
+    background-color: #010324;
+    margin: 40px;
 }
 
 .movie-item-image-container {
