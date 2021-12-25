@@ -1,0 +1,45 @@
+.movie-details-container{
+    background-color:rgb(37, 38, 46);
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.movie-details-mini-container{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.movie-img-container{
+    margin-right: 20px;
+}
+
+.movie-text-container{
+    width: 50%;
+}
+
+.movie-text-container h2{
+    color: yellow;
+    margin-bottom: 20px;
+}
+
+.movie-text-container h3{
+    color: yellow;
+    margin-bottom: 20px;
+}
+
+.movie-text-container p{
+    color: white;
+    margin-bottom: 20px;
+}
+
+.movie-text-container button {
+    display: inline;
+    padding: 8px 12px;
+    color: yellow;
+    font-size: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+}

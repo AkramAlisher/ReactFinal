@@ -1,0 +1,79 @@
+.movies-page-container {
+    padding-top: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-container button {
+    padding: 0 12px;
+    border-radius: 8px;
+}
+
+.movies-page-container input {
+    margin-top: 16px;
+    width: 30%;
+    padding: 12px;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-around;
+    background-color: rgb(37, 38, 46);
+}
+
+.movie-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    height: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: black;
+    margin: 20px;
+}
+
+.movie-item-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-item-title-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8px;
+}
+
+.movie-item-title-container h3 {
+    font-size: 20px;
+    text-decoration: none;
+    color: white
+}
+
+.movie-item-title-container h4 {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.movies-container a:link {
+    text-decoration: none;
+}
+
+.green-title {
+    color: green;
+}
+
+.yellow-title {
+    color: yellow;
+}
+
+.red-title {
+    color: red;
+}
