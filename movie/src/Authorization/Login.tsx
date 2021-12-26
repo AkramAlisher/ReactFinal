@@ -6,6 +6,7 @@ import AuthState from "../Model/AuthState";
 import User from "../Model/User";
 import instance from "../db/axios";
 import {AuthAction} from "../Model/AuthAction.enum";
+import {Button, Stack, TextField} from "@mui/material";
 
 interface Props {
 
@@ -20,12 +21,12 @@ export default function Login({}: Props): ReactElement {
     const authState = useSelector<AuthState>((state: AuthState) => state) as AuthState
     const dispatch = useDispatch()
 
-    const loginOnChange = useCallback(e=>{
+    const loginOnChange = useCallback(e => {
         setUsername(e.target.value)
-    },[])
-    const passwordOnChange = useCallback(e=>{
+    }, [])
+    const passwordOnChange = useCallback(e => {
         setPassword(e.target.value)
-    },[])
+    }, [])
 
 
     useEffect(() => {
@@ -51,9 +52,13 @@ export default function Login({}: Props): ReactElement {
     return (
         <div className={css.input_container}>
             <div className={css.input_card}>
-                <h1>Login</h1>
-                <input type='text' placeholder='Username...' onChange={loginOnChange}/>
-                <input type='password' placeholder='Password...' onChange={passwordOnChange}/>
+                <h1>Authorization</h1>
+                <Stack sx={{ width: '60%' }}>
+                    <TextField type='text' placeholder='Enter the username' onChange={loginOnChange}/>
+                </Stack>
+                <Stack sx={{ mt: 3, width: '60%' }}>
+                    <TextField type='password' placeholder='Enter the password' onChange={passwordOnChange}/>
+                </Stack>
                 <button onClick={authenticateUser}>Login</button>
                 {authState.isLogged ? <Redirect to='/account'/> : null}
             </div>

@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import AuthState from "../Model/AuthState";
 import instance from "../db/axios";
 import {AuthAction} from "../Model/AuthAction.enum";
+import {Stack, TextField} from "@mui/material";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
@@ -57,8 +58,12 @@ export default function Register({}: Props): ReactElement {
         <div className={css.input_container}>
             <div className={css.input_card}>
                 <h1>Registration</h1>
-                <input type='text' placeholder='Username...' onChange={(e) => setUsername(e.target.value)}/>
-                <input type='password' placeholder='Password...' onChange={(e) => setPassword(e.target.value)}/>
+                <Stack sx={{ width: '60%' }}>
+                    <TextField type='text' placeholder='Enter the username' onChange={(e) => setUsername(e.target.value)}/>
+                </Stack>
+                <Stack sx={{ width: '60%', mt: 3 }}>
+                    <TextField type='password' placeholder='Enter the password.' onChange={(e) => setPassword(e.target.value)}/>
+                </Stack>
                 <button onClick={() => validate()}>Register</button>
                 {authState.isLogged ? <Redirect to='/account'/> : null}
             </div>
