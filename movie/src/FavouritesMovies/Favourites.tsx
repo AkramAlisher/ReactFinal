@@ -16,10 +16,12 @@ export default function Favourites(): ReactElement {
         return 'red-title'
     }
 
-    
+
     return (
         <div className='movies-page-container'>
+             <h1 className='movies-title'>My Favorite Movies</h1>
             <div className={'movies-container'}>
+               
                 {movies && movies.map(({id, title, poster_path, vote_average}) => (
                     <Fragment key={id}>
                         <Link to={'/' + id} className={'movie-item'}>

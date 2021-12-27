@@ -1,6 +1,13 @@
 .movies-page-container {
     padding-top: 30px;
 }
+.movies-title{
+    display: flex;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .search-container {
     display: flex;
