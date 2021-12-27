@@ -49,6 +49,15 @@ function App() {
                             <Route path="/register">
                                 <RegistrationPage/>
                             </Route>
+
+                            <Route path="/account">
+                                <AccountPage/>
+                            </Route>
+
+                            <Route path="/favourites">
+                                <FavouritesPage/>
+                            </Route>
+
                             <Route path="/:id">
                                 <Profiler id="MovieDetailsPage" onRender={callbackFunction}>
                                     <MovieDetailsPage/>
