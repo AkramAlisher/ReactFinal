@@ -7,6 +7,8 @@ import AuthState from "../Model/AuthState";
 import {AuthAction} from "../Model/AuthAction.enum";
 import {Stack, TextField} from "@mui/material";
 import usersArray from '../db/users.json';
+import { useHistory } from "react-router-dom";
+
 
 interface Props {
 }
@@ -15,6 +17,7 @@ export default function Register({}: Props): ReactElement {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [users, setUsers] = useState<User[]>([])
+    let history = useHistory();
 
     const authState = useSelector<AuthState>((state: AuthState) => state) as AuthState
     const dispatch = useDispatch()
@@ -26,7 +29,7 @@ export default function Register({}: Props): ReactElement {
     async function createUser() {
         const isPresent = !!users.find((u) => u.username === username)
         if (isPresent) {
-            // TODO handle case when the user is already registered
+            history.push('/login')
             return
         } else {
             let user: User = {id: users.length, username: username, password: password, favourites: []}

@@ -3,7 +3,6 @@ import {useRouteMatch} from 'react-router-dom'
 import movieApi from '../Api/MovieApi';
 import Details from '../Model/Details';
 import './MovieDetails.css'
-import instance from "../db/axios";
 import {useDispatch, useSelector} from "react-redux";
 import AuthState from "../Model/AuthState";
 import {AuthAction} from "../Model/AuthAction.enum";
@@ -13,8 +12,6 @@ const DEFAULT_IMAGE_URL = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/
 
 interface Props {
 }
-
-const API_USERS = '/people'
 
 export default function MovieDetails({}: Props): ReactElement {
     const match = useRouteMatch<{ id: string }>();
@@ -56,6 +53,14 @@ export default function MovieDetails({}: Props): ReactElement {
         setIsAlreadyPresent(true)
     }
 
+    async function removeFromFavourites() {
+        let user = authState.user
+        // @ts-ignore
+        user.favourites = user?.favourites.filter(film => film.id !== movieDetails.id) || []
+        dispatch({type: AuthAction.UPDATE, user: user})
+        setIsAlreadyPresent(false)
+    }
+
     if (movieDetails.title === 'Ten') {
         throw new Error('Bad Movie')
     }
@@ -71,10 +76,11 @@ export default function MovieDetails({}: Props): ReactElement {
                     <h2>{movieDetails.title}</h2>
                     <h3><span className={'movie-text'}>Rating:</span> {movieDetails.vote_average}</h3>
                     <p><span className={'movie-text'}>Overview:</span><br/>{movieDetails.overview}</p>
-                    {authState.isLogged && !isAlreadyPresent ?
-                        <button onClick={() => addToFavourites()}>Add to Favourites</button> : null}
-                    {authState.isLogged && isAlreadyPresent ?
-                        <h3 className={'favourite-text'}>You have added the movie to your favourites list</h3> : null}
+                    {
+                        !isAlreadyPresent ?
+                            <button onClick={() => addToFavourites()}>Add to Favourites</button> :
+                            <button onClick={() => removeFromFavourites()}>Remove from Favourites</button>
+                    }
                 </div>
             </div>
         </div>
