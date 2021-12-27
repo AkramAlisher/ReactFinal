@@ -77,9 +77,11 @@ export default function MovieDetails({}: Props): ReactElement {
                     <h3><span className={'movie-text'}>Rating:</span> {movieDetails.vote_average}</h3>
                     <p><span className={'movie-text'}>Overview:</span><br/>{movieDetails.overview}</p>
                     {
-                        !isAlreadyPresent ?
+                        authState.isLogged && (
+                            !isAlreadyPresent ?
                             <button onClick={() => addToFavourites()}>Add to Favourites</button> :
                             <button onClick={() => removeFromFavourites()}>Remove from Favourites</button>
+                        )
                     }
                 </div>
             </div>
