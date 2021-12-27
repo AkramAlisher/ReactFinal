@@ -17,12 +17,13 @@
     padding: 12px;
     box-shadow: 0 0 5px rgb(255, 255, 255);
     border-radius: 4px;
+    /* width: 100%; */
 }
 
 .input_card h1 {
     margin-top: 16px;
     margin-bottom: 32px;
-    color: #ffffff;
+    color: #000;
 }
 
 .input_card input {
