@@ -14,7 +14,8 @@ interface Props {
 }
 
 export default function MovieDetails({}: Props): ReactElement {
-    let removedFromFavorite = false;
+    const [removedFromFavorite, setRemovedFromFavorite] = useState<Boolean>(false)
+
     const match = useRouteMatch<{ id: string }>();
     const [movieDetails, setMovieDetails] = useState<Details>(
         {id: 0, title: "", poster_path: "", vote_average: 0, overview: ""}
@@ -51,6 +52,7 @@ export default function MovieDetails({}: Props): ReactElement {
             dispatch({type: AuthAction.UPDATE, user: user})
         }
         setIsAlreadyPresent(true)
+        setRemovedFromFavorite(false)
     }
 
     async function removeFromFavourites() {
@@ -59,8 +61,7 @@ export default function MovieDetails({}: Props): ReactElement {
         user.favourites = user?.favourites.filter(film => film.id !== movieDetails.id) || []
         dispatch({type: AuthAction.UPDATE, user: user})
         setIsAlreadyPresent(false)
-        removedFromFavorite = true
-        console.log(removedFromFavorite)
+        setRemovedFromFavorite(true)
     }
 
     if (movieDetails.title === 'Ten') {
@@ -79,9 +80,7 @@ export default function MovieDetails({}: Props): ReactElement {
                     <h3><span className={'movie-text'}>Rating:</span> {movieDetails.vote_average}</h3>
                     <p><span className={'movie-text'}>Overview:</span><br/>{movieDetails.overview}</p>
                     {
-                         
-                            removedFromFavorite ?   <h3><span className={'movie-text'}>Removed to favourites</span></h3> : ''
-                        
+                        removedFromFavorite ? <h3><span className={'movie-text'}>Removed from favourites</span></h3> : ''
                     }
                     {
                         authState.isLogged && (
@@ -92,7 +91,7 @@ export default function MovieDetails({}: Props): ReactElement {
                                
                           </div> :
                           <div>
-                          <h3><span className={'movie-text'}>Added to favourites</span></h3>
+                              <h3><span className={'movie-text'}>Added to favourites</span></h3>
                               <button onClick={() => removeFromFavourites()}>Remove from Favourites</button>
                           </div>
                         )

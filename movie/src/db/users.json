@@ -4,9 +4,7 @@
       "id": 0,
       "username": "user",
       "password": "123",
-      "favourites": [
-
-      ]
+      "favourites": []
     }
   ]
 }
