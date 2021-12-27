@@ -19,16 +19,6 @@ export default function NavBar({}: Props): ReactElement {
                 <Link to="/">
                     <li>Movies</li>
                 </Link>
-                {authState.isLogged ?
-                    <Link to='/favourites'>
-                        <li>Favourites</li>
-                    </Link>
-                    : null}
-                {authState.isLogged ?
-                    <Link to='/account'>
-                        <li>Account</li>
-                    </Link>
-                    : null}
                 {authState.isLogged ? null :
                     <Link to="/login">
                         <li>Login</li>
