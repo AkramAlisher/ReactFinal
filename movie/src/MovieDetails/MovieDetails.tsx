@@ -1,7 +1,6 @@
-import React, {ReactElement, useContext, useEffect, useState} from 'react'
+import React, {ReactElement, useEffect, useState} from 'react'
 import {useRouteMatch} from 'react-router-dom'
 import movieApi from '../Api/MovieApi';
-import AuthContext from '../Context/AuthContext';
 import Details from '../Model/Details';
 import './MovieDetails.css'
 import instance from "../db/axios";
@@ -51,7 +50,6 @@ export default function MovieDetails({}: Props): ReactElement {
 
         if (!isMoviePresent) {
             user?.favourites.push(movieDetails)
-            const response = await instance.patch(`${API_USERS}/${user?.id}`, user)
             dispatch({type: AuthAction.UPDATE, user: user})
         }
 

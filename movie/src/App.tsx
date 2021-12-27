@@ -12,25 +12,6 @@ const MovieDetailsPage = lazy(() => import("./MovieDetails/MovieDetails"))
 const FavouritesPage = lazy(() => import("./FavouritesMovies/Favourites"))
 
 function App() {
-
-    const callbackFunction = (
-        id: string,
-        phase: "mount" | "update",
-        actualDuration: number,
-        baseDuration: number,
-        startTime: number,
-        commitTime: number,
-        interactions: Set<{ id: number; name: string; timestamp: number }>
-    ) => {
-        console.log("Id is :", id);
-        console.log("Phase is :", phase);
-        console.log("Actual Duration is :", actualDuration);
-        console.log("Base Duration is :", baseDuration);
-        console.log("Start Time is :", startTime);
-        console.log("Commit Time is :", commitTime);
-        console.log("Interactions is :", interactions);
-    };
-
     return (
         <Router>
             <Suspense fallback={<h1>Loading Route ...</h1>}>
@@ -59,9 +40,7 @@ function App() {
                             </Route>
 
                             <Route path="/:id">
-                                <Profiler id="MovieDetailsPage" onRender={callbackFunction}>
-                                    <MovieDetailsPage/>
-                                </Profiler>
+                                <MovieDetailsPage/>
                             </Route>
 
                         </Switch>

@@ -1,17 +1,12 @@
-import React, {Fragment, ReactElement, useContext, useEffect, useReducer, useState} from 'react'
+import React, {Fragment, ReactElement} from 'react'
 import {Link} from 'react-router-dom'
-import AuthContext from '../Context/AuthContext'
 import '../MoviesList/Movies.css'
 import {useSelector} from "react-redux";
 import AuthState from "../Model/AuthState";
 
 export default function Favourites(): ReactElement {
-    // const authState = useContext(AuthContext)
     const authState = useSelector<AuthState>((state: AuthState) => state) as AuthState
-
     const movies = authState.user?.favourites
-
-    console.log(authState)
 
     function getVoteAverageClass(average: number): string {
         if (average > 7)

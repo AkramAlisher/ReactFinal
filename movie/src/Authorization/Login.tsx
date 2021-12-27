@@ -6,13 +6,12 @@ import AuthState from "../Model/AuthState";
 import User from "../Model/User";
 import instance from "../db/axios";
 import {AuthAction} from "../Model/AuthAction.enum";
-import {Button, Stack, TextField} from "@mui/material";
+import {Stack, TextField} from "@mui/material";
+import usersArray from '../db/users.json';
 
 interface Props {
 
 }
-
-const API_USERS = '/people'
 
 export default function Login({}: Props): ReactElement {
     const [username, setUsername] = useState('');
@@ -30,18 +29,13 @@ export default function Login({}: Props): ReactElement {
 
 
     useEffect(() => {
-        async function fetchUsers() {
-            const result = await instance.get(API_USERS)
-            setUsers([...result.data])
-        }
-
-        fetchUsers()
+        setUsers([...usersArray.people])
     }, [])
 
     function authenticateUser() {
         const isPresent = users.find((user) => user.username === username && user.password === password) != null
         const user = users.find((user) => user.username === username && user.password === password)
-        console.log("clicked")
+        console.log("clicked233")
         if (isPresent) {
             dispatch({type: AuthAction.LOGIN, user: user})
         } else {

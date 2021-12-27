@@ -1,6 +1,5 @@
-import React, {useContext, useReducer} from 'react'
+import React from 'react'
 import {Redirect} from 'react-router-dom';
-import AuthContext from '../Context/AuthContext';
 import './Account.css'
 import {useDispatch, useSelector} from "react-redux";
 import AuthState from "../Model/AuthState";
