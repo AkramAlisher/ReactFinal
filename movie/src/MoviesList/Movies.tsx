@@ -3,14 +3,13 @@ import {Link} from 'react-router-dom'
 import movieApi from '../Api/MovieApi'
 import Movie from '../Model/Movie'
 import './Movies.css'
-import {Card, Stack, TextField} from "@mui/material";
+import {Stack, TextField} from "@mui/material";
 
 const api_key = 'b82c172e7bf6660516881c6a1ed616dd'
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500'
 const DEFAULT_IMAGE_URL = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/space-movie-poster-design-template-18133e937d93002c68b4649ea234d75f_screen.jpg?ts=1573539500'
 
 function Movies(): ReactElement {
-    console.log("Movies")
     const [movies, setMovies] = useState<Movie[]>([])
     const [query, setQuery] = useState('')
     const movies_query = '/3/discover/movie?api_key=' + api_key

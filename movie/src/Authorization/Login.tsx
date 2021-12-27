@@ -1,10 +1,9 @@
-import React, {ReactElement, useCallback, useContext, useEffect, useState} from 'react'
+import React, {ReactElement, useCallback, useEffect, useState} from 'react'
 import {Redirect} from 'react-router-dom';
 import css from './Register.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import AuthState from "../Model/AuthState";
 import User from "../Model/User";
-import instance from "../db/axios";
 import {AuthAction} from "../Model/AuthAction.enum";
 import {Stack, TextField} from "@mui/material";
 import usersArray from '../db/users.json';
@@ -35,7 +34,6 @@ export default function Login({}: Props): ReactElement {
     function authenticateUser() {
         const isPresent = users.find((user) => user.username === username && user.password === password) != null
         const user = users.find((user) => user.username === username && user.password === password)
-        console.log("clicked233")
         if (isPresent) {
             dispatch({type: AuthAction.LOGIN, user: user})
         } else {
