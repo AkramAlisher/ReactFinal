@@ -16,6 +16,7 @@ export default function Favourites(): ReactElement {
         return 'red-title'
     }
 
+    
     return (
         <div className='movies-page-container'>
             <div className={'movies-container'}>
